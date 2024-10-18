@@ -1,10 +1,11 @@
 .App {
   text-align: center;
   display: grid;
-  grid-template-areas: 
+  grid-template-areas:
     "h h h h h h"
     "ar ar as as as as"
     "f f f f f f";
+  
 }
 
 .App-logo {
@@ -21,12 +22,8 @@
 .App-header {
   grid-area: h;
   background-color: black;
-  min-height: 10vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(5px + 2vmin);
+  min-height: 6vh;
+  font-size: calc(1px + 2vmin);
   color: white;
 }
 
@@ -34,63 +31,96 @@
   color: #61dafb;
 }
 
-.konyvek{
+.konyvek {
   display: grid;
-  grid-template-columns: repeat(4,200px);
+  grid-template-columns: repeat(4, 200px);
   gap: 10px;
   margin: 20px;
   padding: 30px;
 }
 
-.kartyak{
+.kartyak {
   text-align: center;
   width: 200px;
-
 }
 
-.konyvkep{
+.konyvkep {
   width: 150px;
   height: 150px;
 }
-article{
+article {
   grid-area: ar;
   border: 1px solid black;
-  
 }
-aside{
+aside {
   grid-area: as;
   border: 1px solid black;
 }
-button{
+button {
   padding: 10px;
   color: white;
   background-color: black;
 }
-button:hover{
+button:hover {
   padding: 10px;
   color: black;
   background-color: white;
 }
-footer{
+footer {
   grid-area: f;
 }
-h3{
+h3 {
   border-bottom: 1px solid black;
+}
+nav {
+  display: flex; 
+  justify-content: flex-start; 
+  margin: auto; 
+}
+li{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  list-style: none;
+}
+a{
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  width: 80px;
+  padding: 6px;
+}
+a:hover{
+  background-color: white;
+  color: black;
+}
+
+table {
+  margin: auto;
+}
+td,
+th {
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+.kosarkep{
+  width: 50px;
+  height: 50px;
 }
 
 @media (max-width: 1200px) {
   .konyvek {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (max-width: 1100px) {
   .konyvek {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
   .App {
     text-align: center;
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       "h h h h h h"
       "ar ar ar ar ar ar"
       "as as as as as as"
@@ -103,18 +133,17 @@ h3{
     grid-template-columns: repeat(2, 1fr);
     width: 80%;
     margin: auto;
-    text-align: center;
+    justify-content: center;
   }
-
 }
 
 @media (max-width: 500px) {
   .konyvek {
-    grid-template-columns: 1fr; 
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
   }
-
-  
+  .konyvkep {
+    width: 100px;
+    height: 100px;
+  }
 }
-
-
-
