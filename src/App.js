@@ -1,27 +1,12 @@
-import { useState } from "react";
+import { useContext } from "react";
 import "./App.css";
 import konyvek from "./adatok.js";
 import Kartya from "./components/Kartya.js";
+import { KATTContext } from "./context/KosarContext.js";
 
 function App() {
-  const [kosar, setKosar] = useState([]);
 
-  const kosarHozzaAd = (ujTermek) => {
-    const hozzaAdott = kosar.find((termek) => termek.id === ujTermek.id)
-    if (hozzaAdott){
-      const frissitettKosar = kosar.map((termek) => {
-        if(termek.id === ujTermek.id){
-          return {...termek,db: termek.db +1};
-        }
-        return termek;
-      });
-      setKosar(frissitettKosar);
-    } else{
-      const ujTermekAlap = {...ujTermek,db: 1};
-      setKosar([...kosar,ujTermekAlap]);
-    }
-  }
-
+  const { kosar, katt } = useContext(KATTContext);
   const dbAr = kosar.map((termek) => termek.ar * termek.db);
   const fizetendoOsszeg = dbAr.reduce((osszeg, ar) => osszeg + ar, 0);
 
@@ -55,7 +40,7 @@ function App() {
               szerzo={konyv.szerzo}
               ar={konyv.ar}
               kep={konyv.kep}
-              kosarhozad={() => kosarHozzaAd(konyv)}
+              kosarhozad={() => katt(konyv)}
             />
           ))}
         </div>
