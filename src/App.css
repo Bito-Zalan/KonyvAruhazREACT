@@ -79,7 +79,7 @@ nav {
 }
 li{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 0.5fr);
   gap: 20px;
   list-style: none;
 }
@@ -134,6 +134,10 @@ th {
     width: 80%;
     margin: auto;
     justify-content: center;
+  }
+  li{
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
   }
 }
 
